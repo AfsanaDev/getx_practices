@@ -29,7 +29,7 @@ class HomeScreen extends StatelessWidget {
               '${controller.counter}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),),
-            TextButton(onPressed: ()=>Get.to(const SecondPage()), child: const Text('Go to second page'))
+            TextButton(onPressed: ()=>Get.to(SecondPage()), child: const Text('Go to second page'))
 
           ],
         ),
