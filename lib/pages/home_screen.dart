@@ -5,7 +5,7 @@ import '../blocs/counter_controller.dart';
 import 'second_page.dart';
 
 class HomeScreen extends StatelessWidget {
- CounterController controller = Get.put(CounterController());
+ CounterController counterController = Get.put(CounterController());
 
   HomeScreen({super.key});
 
@@ -26,7 +26,7 @@ class HomeScreen extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Obx(() => Text(
-              '${controller.counter}',
+              '${counterController.counter}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),),
             TextButton(onPressed: ()=>Get.to(SecondPage()), child: const Text('Go to second page'))
@@ -35,7 +35,7 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed:controller.incrementCounter,
+        onPressed:counterController.incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
