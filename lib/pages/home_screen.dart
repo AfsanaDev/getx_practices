@@ -1,10 +1,13 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_practices/blocs/counter_controller.dart';
+import '../blocs/counter_controller.dart';
+import 'second_page.dart';
 
 class HomeScreen extends StatelessWidget {
- CounterController counterController = Get.put(CounterController());
+ CounterController controller = Get.put(CounterController());
+
+  HomeScreen({super.key});
 
 
   @override
@@ -23,14 +26,16 @@ class HomeScreen extends StatelessWidget {
               'You have pushed the button this many times:',
             ),
             Obx(() => Text(
-              '${counterController.counter}',
+              '${controller.counter}',
               style: Theme.of(context).textTheme.headlineMedium,
             ),),
+            TextButton(onPressed: ()=>Get.to(const SecondPage()), child: const Text('Go to second page'))
+
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed:()=> counterController.incrementCounter,
+        onPressed:controller.incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
